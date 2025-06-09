@@ -1,0 +1,33 @@
+<nav class="sidebar" data-dashboard-target="sidebar">
+  <ul class="sidebar-ul">
+    <li>
+      <%= sidebar_link_to "Overview", artist_atelier_path, class: "sidebar-link" %>
+    </li>
+    <li>
+      <%= sidebar_link_to "Incoming commissions",
+      artist_atelier_incoming_commissions_path,
+      class: "sidebar-link" %>
+    </li>
+    <li>
+      <%= sidebar_link_to "Active commissions",
+      artist_atelier_active_commissions_path,
+      class: "sidebar-link" %>
+    </li>
+
+    <div class="sidebar-subsection" id="atelier-sidebar-commission-list">
+      <% @artist.commissions.where.not(stage: :incoming).each do |commission| %>
+        <li>
+          <%= sidebar_link_to "#{commission.user.first_name} #{commission.user.last_name}",
+          artist_atelier_commission_path(commission),
+          class: "sidebar-link" %>
+        </li>
+      <% end %>
+    </div>
+
+    <li>
+      <%= sidebar_link_to "Finished commissions",
+      artist_atelier_finished_commissions_path,
+      class: "sidebar-link" %>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,82 @@
+{
+  "From": "claude.monet@impressionists.art",
+  "MessageStream": "inbound",
+  "FromName": "Claude Monet",
+  "FromFull": {
+    "Email": "claude.monet@impressionists.art",
+    "Name": "Claude Monet",
+    "MailboxHash": ""
+  },
+  "To": "inquiries@otterkin.art",
+  "ToFull": [
+    {
+      "Email": "inquiries@otterkin.art",
+      "Name": "",
+      "MailboxHash": "ahoy"
+    }
+  ],
+  "Cc": null,
+  "CcFull": [],
+  "Bcc": null,
+  "BccFull": [],
+  "OriginalRecipient": "inquiries@otterkin.art",
+  "ReplyTo": "claude.monet@impressionists.art",
+  "Subject": "A Painter's Glance – Introduction from Claude Monet",
+  "MessageID": "monet-intro-12345@inbound.postmarkapp.com",
+  "Date": "Mon, 26 May 2025 10:00:00 -0400",
+  "MailboxHash": "ahoy",
+  "TextBody": "Hi there,\n\nI’m Claude Monet – a painter, deeply fascinated by the ever-shifting dance of light and its fleeting impressions upon the natural world. I find my truest expression in capturing the ephemeral qualities of a landscape, a water lily pond, or the misty atmosphere of a morning. My brush strives to convey not merely what is seen, but what is felt—the very sensation of a moment. A friend mentioned your platform and I thought I’d reach out. I’m curious to learn more – it looks like a really interesting space for connecting artists and clients in a more personal way, allowing for a shared pursuit of beauty beyond the confines of traditional exhibitions.\n\nI’ve attached a few recent pieces that I believe exemplify this pursuit. Let me know if it’s worth setting up a page or profile, or if there’s anything else I should know. I believe a connection with discerning patrons could foster remarkable new endeavors.\n\nBest,\nClaude",
+  "HtmlBody": "<html><body><p>Hi there,</p><p>I’m Claude Monet – a painter, deeply fascinated by the ever-shifting dance of light and its fleeting impressions upon the natural world. I find my truest expression in capturing the ephemeral qualities of a landscape, a water lily pond, or the misty atmosphere of a morning. My brush strives to convey not merely what is seen, but what is felt—the very sensation of a moment. </p><p>A friend mentioned your platform and I thought I’d reach out. I’m curious to learn more – it looks like a really interesting space for connecting artists and clients in a more personal way, allowing for a shared pursuit of beauty beyond the confines of traditional exhibitions.</p><p>I’ve attached a few recent pieces that I believe exemplify this pursuit. Let me know if it’s worth setting up a page or profile, or if there’s anything else I should know. I believe a connection with discerning patrons could foster remarkable new endeavors.</p><p>Best,</p><p>Claude</p></body></html>",
+  "StrippedTextReply": "I’m Claude Monet...",
+  "Tag": "artist-introduction",
+  "Attachments": [
+    {
+      "Name": "water_lilies_sunrise.jpg",
+      "Content": "BASE64_ENCODED_CONTENT_FOR_WATER_LILIES_SUNRISE_JPG",
+      "ContentType": "image/jpeg",
+      "ContentLength": 123456,
+      "ContentID": "water_lilies_sunrise.jpg@monet.art"
+    },
+    {
+      "Name": "haystacks_sunset.jpg",
+      "Content": "BASE64_ENCODED_CONTENT_FOR_HAYSTACKS_SUNSET_JPG",
+      "ContentType": "image/jpeg",
+      "ContentLength": 234567,
+      "ContentID": "haystacks_sunset.jpg@monet.art"
+    }
+  ],
+  "Headers": [
+    {
+      "Name": "X-Spam-Checker-Version",
+      "Value": "SpamAssassin 3.3.1 (2010-03-16) onrs-ord-pm-inbound1.wildbit.com"
+    },
+    {
+      "Name": "X-Spam-Status",
+      "Value": "No"
+    },
+    {
+      "Name": "X-Spam-Score",
+      "Value": "-0.1"
+    },
+    {
+      "Name": "X-Spam-Tests",
+      "Value": "DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,SPF_PASS"
+    },
+    {
+      "Name": "Received-SPF",
+      "Value": "Pass (sender SPF authorized) identity=mailfrom; client-ip=209.85.160.180; helo=mail-gy0-f180.google.com; envelope-from=myUser@theirDomain.com; receiver=451d9b70cf9364d23ff6f9d51d870251569e+ahoy@inbound.postmarkapp.com"
+    },
+    {
+      "Name": "DKIM-Signature",
+      "Value": "v=1; a=rsa-sha256; c=relaxed/relaxed;        d=wildbit.com; s=google;        h=mime-version:reply-to:message-id:subject:from:to:cc         :content-type;        bh=cYr/+oQiklaYbBJOQU3CdAnyhCTuvemrU36WT7cPNt0=;        b=QsegXXbTbC4CMirl7A3VjDHyXbEsbCUTPL5vEHa7hNkkUTxXOK+dQA0JwgBHq5C+1u         iuAJMz+SNBoTqEDqte2ckDvG2SeFR+Edip10p80TFGLp5RucaYvkwJTyuwsA7xd78NKT         Q9ou6L1hgy/MbKChnp2kxHOtYNOrrszY3JfQM="
+    },
+    {
+      "Name": "MIME-Version",
+      "Value": "1.0"
+    },
+    {
+      "Name": "Message-ID",
+      "Value": "<CAGXpo2WKfxHWZ5UFYCR3H_J9SNMG+5AXUovfEFL6DjWBJSyZaA@mail.gmail.com>"
+    }
+  ]
+}

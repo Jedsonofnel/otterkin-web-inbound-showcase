@@ -1,0 +1,122 @@
+/* artwork related styling */
+.artworks-dashboard-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--crotchet);
+  margin-bottom: var(--minim);
+}
+
+@media only screen and (min-width: 640px) {
+  .artworks-dashboard-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))
+  }
+}
+
+.artwork-in-grid {
+  object-fit: cover;
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+
+.artwork-form-preview {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+
+/* artwork#show full page */
+.artwork-display-page {
+  width: 100%;
+  padding-left: var(--body-padding);
+  padding-right: var(--body-padding);
+  background-color: var(--fg);
+  height: calc(100dvh - var(--header-height));
+  padding-bottom: var(--semibreve);
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--crotchet);
+
+  &.fh {
+    height: 100dvh;
+    padding-top: var(--minim);
+  }
+}
+
+.artwork-display-top-bar {
+  height: var(--semibreve);
+  display: flex;
+  align-items: center;
+  gap: var(--crotchet);
+  width: 100%;
+}
+
+.artwork-display-top-bar .right {
+  margin-left: auto;
+}
+
+.artwork-displayed {
+  object-fit: contain;
+  min-height: 0;
+  max-height: 100;
+  max-width: 100%;
+}
+
+.artwork-display-caption {
+  color: var(--shw);
+}
+
+/* artworks form */
+.artwork-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: min(500px, 100%);
+  margin-bottom: var(--minim);
+}
+
+@media only screen and (min-width: 640px) {
+  .artwork-form {
+    grid-template-columns: auto 1fr;
+    column-gap: var(--crotchet);
+  }
+}
+
+.artwork-form-image-placeholder {
+  border: 1px solid var(--grey-300);
+  border-radius: var(--quaver);
+  width: 180px;
+  height: 135px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.artwork-select-button {
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+}
+
+.artwork-form-right-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--crotchet);
+}
+
+/* Public artwork view stuff */
+.artwork-img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+  display: block;
+  scroll-snap-align: start;
+}

@@ -1,0 +1,51 @@
+<header>
+  <div class="header-contents-container">
+    <div class="header-logo-container">
+      <%= link_to root_path, class: "logo-link" do %>
+        <%= image_tag "logo-shw.svg", class: "logo" %>
+      <% end %>
+    </div>
+
+    <div></div>
+
+    <nav class="header-right-nav">
+      <ul class="header-right-nav-ul">
+        <li>
+          <%= link_to "Blog", articles_path, class: "header-text-link" %>
+        </li>
+        <li>
+          <%= link_to "About Us", root_path(anchor: "about"), class: "header-text-link" %>
+        </li>
+
+        <% if artist? %>
+          <li>
+            <%= link_to "My Atelier", artist_atelier_path, class: "button dark small" %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "Join waitlist", new_subscriber_path, class: "button dark small" %>
+          </li>
+        <% end %>
+
+        <li>
+          <%= link_to root_path, class: "home-button" do %>
+            <%= render_icon "home" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to dashboard_settings_path, class:"account-button" do %>
+            <%= render_icon "profile" %>
+          <% end %>
+        </li>
+      </ul>
+
+      <div class="hamburger-wrapper">
+        <button
+          data-hamburger-target="button"
+          data-action="hamburger#toggle"
+          class="hamburger"
+        ><span class="hamburger-patty"></span></button>
+      </div>
+    </nav>
+  </div>
+</header>

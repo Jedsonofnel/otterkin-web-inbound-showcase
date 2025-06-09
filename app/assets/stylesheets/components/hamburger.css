@@ -1,0 +1,130 @@
+/* hamburger icon + animation */
+.hamburger {
+  height: 40px;
+  width: 40px;
+  margin-right: -8px;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  transition: background-color 0s;
+
+  touch-action: manipulation;
+
+  &:active {
+    background-color: rfb(from var(--mb) r g b / 0.2);
+  }
+}
+
+.hamburger-patty {
+  width: 20px;
+  height: 2px;
+  border-radius: 1px;
+  background-color: var(--shw);
+  transition: all 0.25s ease-in-out;
+  transform: translateX(2px);
+}
+.hamburger-patty::before,
+.hamburger-patty::after {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 2px;
+  border-radius: 1px;
+  background-color: var(--shw);
+  transition: all 0.25s ease-in-out;
+}
+.hamburger-patty::before {
+  transform: translateY(-10px) translateX(-4px);
+}
+.hamburger-patty::after {
+  transform: translateY(8px) translateX(-4px);
+}
+.hamburger.open {
+  .hamburger-patty {
+    background: transparent;
+  }
+  .hamburger-patty::before {
+    transform: rotate(45deg) translate(-2px, 3px);
+    width: 24px;
+  }
+  .hamburger-patty::after {
+    transform: rotate(-45deg) translate(-2px, -3px);
+    width: 24px;
+  }
+}
+
+/* the hamburger menu itself */
+.hamburger-menu {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  height: calc(100vh - var(--header-height));
+  width: 100vw;
+  background-color: rgb(from var(--mb) r g b / 0.4);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--shw);
+  transition: transform 150ms ease-out;
+  transform: translateX(100vw - 100%);
+  z-index: 50;
+
+  &[hidden] {
+    transform: translateX(100vw);
+    display: block;
+  }
+}
+
+.hamburger-menu-ul {
+  padding-top: var(--crotchet);
+  list-style-type: none;
+  height: calc(100svh - var(--header-height));
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+.hamburger-menu-li {
+  width: 100%;
+}
+
+.hamburger-menu-li > a,
+.hamburger-menu-li > a:visited {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--crotchet);
+  line-height: 1;
+  font-weight: 500;
+  padding: var(--crotchet) var(--minim);
+  color: var(--shw);
+  text-decoration: none;
+  background: none;
+  cursor: pointer;
+  &:hover {
+    background-color: rgb(from var(--mb) r g b / 0.2);
+  }
+  &:active {
+    background-color: var(--fg-lighter);
+  }
+}
+
+.hand-icon {
+  height: 30px;
+  color: var(--shw);
+}
+
+.hamburger-menu-bottom {
+  margin-top: auto;
+  border-top: 1px solid var(--shw);
+  padding: var(--crotchet) 0;
+}
+
+.hamburger-subsection {
+  margin-left: var(--minim);
+  border-left: 1px solid var(--shw);
+}

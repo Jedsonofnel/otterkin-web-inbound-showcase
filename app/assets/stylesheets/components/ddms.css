@@ -1,0 +1,91 @@
+/* ddms = drop down multi select */
+
+/* which is my chosen UI component for adding to a list of
+ * something from a predetermined list of things 
+ * eg artist tags */
+
+.ddms {
+  border-radius: var(--quaver);
+  overflow: hidden;
+}
+
+.ddms-header {
+  background-color: var(--mb);
+  padding: var(--quaver) var(--crotchet);
+
+  & > h4 {
+    color: var(--shw);
+    margin: 0;
+  }
+}
+
+.ddms-container {
+  border: 1px solid var(--grey-300);
+  border-top: none;
+  border-bottom-left-radius: var(--quaver);
+  border-bottom-right-radius: var(--quaver);
+  padding: var(--crotchet);
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--crotchet);
+
+  & > p {
+    margin: 0;
+  }
+}
+
+/* artist tag ddms */
+.ddms-artist-tag {
+  display: flex;
+  align-items: center;
+  background-color: var(--grey-200);
+  border-radius: var(--quaver);
+  gap: var(--quaver);
+  padding: var(--semiquaver) var(--minim);
+  position: relative;
+}
+
+.ddms-tag-text {
+  font-family: var(--font-sans);
+}
+
+.ddms-tag-delete-button {
+  --size: 16px;
+  height: var(--size);
+  width: var(--size);
+  padding: 2px;
+  border-radius: 50%;
+  position: absolute;
+  right: var(--quaver);
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity ease-in-out 150ms;
+
+  &::after, &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid var(--mb);
+  }
+
+  &::after {
+    transform: translateY(-0.5px) rotate(45deg);
+  }
+
+  &::before {
+    transform: translateY(0.5px) rotate(-45deg);
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05)
+  }
+}
+
+.ddms-artist-tag:hover .ddms-tag-delete-button {
+  opacity: 1;
+}

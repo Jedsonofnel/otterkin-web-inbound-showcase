@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <%= render "layouts/head" %>
+
+  <body>
+    <%= render "layouts/header_bar" %>
+
+    <%= yield %>
+    <!-- for modals -->
+    <%= turbo_frame_tag "modal-frame" %>
+    <!-- for toast -->
+    <div id="toast-container">
+      <%= render "layouts/flash" %>
+    </div>
+  </body>
+</html>

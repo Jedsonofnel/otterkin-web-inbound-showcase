@@ -1,0 +1,70 @@
+<nav class="sidebar">
+  <ul class="sidebar-ul">
+    <li>
+      <%= sidebar_link_to "Commissions", dashboard_path, class: "sidebar-link" %>
+    </li>
+
+    <% if @user.commissions.length > 0 %>
+      <div class="sidebar-subsection" id="atelier-sidebar-commission-list">
+        <% @user.commissions.each do |commission| %>
+          <li>
+            <%= sidebar_link_to "#{commission.artist.user.first_name} #{commission.artist.user.last_name}",
+            dashboard_commission_path(commission),
+            class: "sidebar-link" %>
+          </li>
+        <% end %>
+      </div>
+    <% end %>
+
+    <li>
+      <%= sidebar_link_to "Account settings",
+      dashboard_settings_path,
+      class: "sidebar-link" %>
+    </li>
+
+    <% if artist? %>
+      <li>
+        <%= sidebar_link_to "Artist profile",
+        artist_dashboard_profile_path,
+        class: "sidebar-link" %>
+      </li>
+      <li>
+        <%= sidebar_link_to "Artist gallery",
+        artist_dashboard_gallery_path,
+        class: "sidebar-link" %>
+      </li>
+    <% end %>
+
+    <% if admin? %>
+      <li>
+        <%= sidebar_link_to "Patrons", admin_dashboard_patrons_path, class: "sidebar-link" %>
+      </li>
+      <li>
+        <%= sidebar_link_to "Artists", admin_dashboard_artists_path, class: "sidebar-link" %>
+      </li>
+      <li>
+        <%= sidebar_link_to "Tag Management",
+        admin_dashboard_tags_path,
+        class: "sidebar-link" %>
+      </li>
+      <li>
+        <%= sidebar_link_to "Subscribers",
+        admin_dashboard_subscribers_path,
+        class: "sidebar-link" %>
+      </li>
+      <li>
+        <%= sidebar_link_to "Articles", admin_dashboard_articles_path, class: "sidebar-link" %>
+      </li>
+      <li>
+        <%= sidebar_link_to "Newsletters",
+        admin_dashboard_newsletters_path,
+        class: "sidebar-link" %>
+      </li>
+      <li>
+        <%= sidebar_link_to "Spotlights",
+        admin_dashboard_spotlights_path,
+        class: "sidebar-link" %>
+      </li>
+    <% end %>
+  </ul>
+</nav>

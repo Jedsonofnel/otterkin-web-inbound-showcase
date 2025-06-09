@@ -1,0 +1,80 @@
+{
+  "location": "Giverny, France",
+  "biography": "Claude Monet is a painter deeply fascinated by the ever-shifting dance of light and its fleeting impressions upon the natural world. He finds his truest expression in capturing the ephemeral qualities of a landscape, a water lily pond, or the misty atmosphere of a morning. His brush strives to convey not merely what is seen, but what is felt - the very sensation of a moment.",
+  "introduction": true,
+  "last_name": "Monet",
+  "first_name": "Claude",
+  "tags": {
+    "style_tags": [
+      "Impressionism",
+      "Landscape",
+      "Nature"
+    ],
+    "subject_tags": [
+      "Landscapes",
+      "Gardens",
+      "Water Lilies"
+    ],
+    "medium_tags": [
+      "Oil",
+      "Watercolor",
+      "Pastel"
+    ]
+  },
+  "questions": [
+    {
+      "answer": "For me, the most crucial aspect of creating art is capturing the fleeting moment – the impression of light and atmosphere. I strive to convey not just what is seen, but the feeling of being present in that specific time and place. It's about translating the ephemeral into something tangible on the canvas.",
+      "question": "What is the most crucial aspect of creating art?"
+    },
+    {
+      "answer": "I am driven by a desire to explore the ever-changing relationship between light and color in the natural world. Each painting is an attempt to understand and represent the beauty and complexity of these interactions, whether it's the way sunlight dances on water or the subtle shifts in hue during a sunrise.",
+      "question": "What drives your passion as an artist?"
+    },
+    {
+      "answer": "I would hope that viewers experience a sense of serenity and wonder when they see my work. If my paintings can evoke a feeling of being immersed in nature, of truly seeing the beauty that surrounds us, then I have succeeded in my artistic endeavor.",
+      "question": "What do you hope viewers experience when they see your work?"
+    }
+  ],
+  "commission_types": [
+    {
+      "unit": "inches",
+      "height": 20.0,
+      "width": 24.0,
+      "subject": "Water Lilies",
+      "price": 5000.0,
+      "medium": "Oil on canvas"
+    },
+    {
+      "height": 12.0,
+      "unit": "inches",
+      "price": 3000.0,
+      "subject": "Seascape",
+      "width": 16.0,
+      "medium": "Watercolor"
+    },
+    {
+      "height": 30.0,
+      "subject": "Landscape",
+      "price": 8000.0,
+      "unit": "inches",
+      "width": 40.0,
+      "medium": "Oil on canvas"
+    },
+    {
+      "unit": "inches",
+      "width": 8.0,
+      "height": 10.0,
+      "subject": "Portrait",
+      "price": 2500.0,
+      "medium": "Pastel on paper"
+    },
+    {
+      "subject": "Impressionistic Garden Scene",
+      "height": 15.0,
+      "width": 18.0,
+      "unit": "inches",
+      "price": 6000.0,
+      "medium": "Oil on canvas"
+    }
+  ]
+}

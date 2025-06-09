@@ -1,0 +1,7 @@
+production:
+  subscribers_cleanup:
+    class: SubscribersCleanupJob
+    schedule: every monday at 9am
+  artist_drafts_cleanup:
+    class: ArtistDraftsCleanupJob
+    schedule: every monday at 9am

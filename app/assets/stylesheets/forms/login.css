@@ -1,0 +1,21 @@
+/* login form */
+
+.form-login,
+.tw > .form-login {
+  width: min(100%, 320px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--crotchet);
+  margin: 0 auto;
+
+  & > input[type="submit"] {
+    margin-top: var(--minim);
+  }
+}
+
+.form-login-heading {
+  margin-bottom: var(--minim);
+  text-transform: uppercase;
+  text-align: center;
+}

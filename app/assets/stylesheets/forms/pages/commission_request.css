@@ -1,0 +1,27 @@
+.commission-request-form {
+  display: grid;
+  column-gap: var(--minim);
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: "types" "details";
+  row-gap: var(--semibreve);
+  margin-top: var(--semibreve);
+}
+
+@media (min-width: 640px) {
+  .commission-request-form {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "details types";
+  }
+}
+
+.commission-types-container {
+  grid-area: types;
+}
+
+.commission-details-container {
+  grid-area: details;
+  display: flex;
+  flex-direction: column;
+  gap: var(--minim);
+}

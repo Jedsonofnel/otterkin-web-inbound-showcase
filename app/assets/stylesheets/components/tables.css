@@ -1,0 +1,175 @@
+/* scope all basic table styles under this */
+table.table-basic {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+  border-top-right-radius: var(--crotchet);
+  border-top-left-radius: var(--crotchet);
+  overflow: hidden;
+  table-layout: auto;
+
+  thead {
+    color: var(--bg);
+    background-color: var(--fg);
+  }
+
+  th,
+  td {
+    padding: var(--quaver) var(--crotchet);
+    white-space: nowrap;
+  }
+
+  td > a {
+    color: var(--fg);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  tr {
+    border-bottom: 1px solid var(--grey-200);
+    position: relative;
+    &:nth-of-type(even) {
+      background-color: rgb(from var(--grey-100) r g b / 0.4);
+    }
+  }
+}
+
+.table-container {
+  overflow: auto;
+  max-width: 100%;
+  width: 100%;
+
+  &.padded {
+    margin: var(--minim) 0;
+  }
+}
+
+.table-pagination-footer {
+  width: 100%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--minim);
+  font-family: var(--font-sans);
+  padding: var(--quaver);
+  border-bottom: 1px solid var(--grey-200);
+}
+
+.table-pagination-progress {
+  justify-self: center;
+  grid-column: 2/3;
+}
+
+.table-pagination-next-button {
+  justify-self: start;
+  grid-column: 3/4;
+}
+
+.table-pagination-prev-button {
+  justify-self: end;
+  grid-column: 1/2;
+}
+
+.table-pagination-next-button,
+.table-pagination-prev-button {
+  color: var(--fg);
+  cursor: pointer;
+  text-decoration: none;
+  padding: var(--semiquaver) var(--quaver);
+  border-radius: var(--quaver);
+  border: 1px solid var(--bg);
+
+  &:hover {
+    border: 1px solid var(--fg);
+  }
+  &:active {
+    background-color: var(--grey-100);
+  }
+}
+
+/* helper cell classes */
+.table-ellipsed-cell {
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.table-centered-cell {
+  text-align: center;
+  vertical-align: center;
+
+  & > form {
+    display: flex;
+    align-items: center;
+    gap: var(--crotchet);
+    justify-content: center;
+  }
+}
+
+.table-text-with-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--quaver);
+
+  & > svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* individual button cells */
+.table-button-cell {
+  width: 1px;
+
+  &:has(+ .table-button-cell) {
+    padding-right: 0;
+  }
+
+  & button,
+  & a {
+    margin: 0 auto;
+  }
+}
+
+.table-grow-cell {
+  width: 100%;
+}
+
+.table-small-cell {
+  width: 1px;
+}
+
+/* filtering stuff */
+.table-filter-options-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--minim);
+  align-items: center;
+  padding: var(--crotchet);
+  border-radius: var(--crotchet);
+  border: 1px solid var(--fg);
+
+  &:has(+ .table-container.padded) {
+    margin-bottom: -8px;
+  }
+}
+
+.table-filter-options-text {
+  font-weight: bold;
+  margin: 0;
+  line-height: 1;
+}
+
+.table-filter-option-checked-link {
+  display: flex;
+  gap: var(--crotchet);
+  align-items: center;
+  color: var(--fg);
+  text-decoration: none;
+}

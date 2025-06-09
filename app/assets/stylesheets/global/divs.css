@@ -1,0 +1,54 @@
+/* some utility classes for divs for commonly used cases */
+
+/* justify-content: start */
+.stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: var(--crotchet);
+
+  &.row {
+    flex-direction: row;
+  }
+
+  &.center {
+    align-items: center;
+  }
+
+  &.col-left {
+    align-items: start;
+  }
+
+  &.gap-m {
+    gap: var(--minim);
+  }
+}
+
+/* justify-content: center */
+.cluster {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; 
+
+  &.col {
+    flex-direction: column;
+  }
+}
+
+/* justified space-between */
+.split {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  &.col {
+    flex-direction: column;
+  }
+}
+
+div.mv {
+  margin-top: var(--semibreve);
+  margin-bottom: var(--semibreve);
+}

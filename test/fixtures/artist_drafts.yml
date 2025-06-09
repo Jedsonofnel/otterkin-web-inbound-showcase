@@ -1,0 +1,15 @@
+monet:
+  email_address: monetmonet@monet.com
+  first_name: Claude
+  last_name: Monet
+  biography: Hey I'm Monet
+  location: Chamonix
+  data: {}
+dali:
+  email_address: dali@salvador.com
+  first_name: Salvador
+  last_name: Dali
+  biography: Hey I'm Dali
+  location: Malaga
+  data: {}
+  created_at: <%= 30.days.ago %>

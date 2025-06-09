@@ -1,0 +1,71 @@
+/* colour palette */
+:root {
+  /* background */
+  --bg: #faf9f4;
+
+  --mb: #1c1d17;
+  --mb-lighter: #33342e;
+  --mb-lightest: #4a4b44;
+  --mb-darker: #161712;
+  --mb-darkest: #10110d;
+
+  --ib: #0e292f;
+  --ib-lighter: #3e5459;
+  --ib-darker: #0b2126;
+
+  --dc: #c5bdaa;
+  --dc-lighter: #d6d1c4;
+  --dc-darker: #9e9788;
+
+  --shw: #faf9f4;
+
+  /* foreground (dark) */
+  --fg-lightest: var(--mb-lightest);
+  --fg-lighter: var(--mb-lighter);
+  --fg: var(--mb);
+  --fg-darker: var(--mb-darker);
+
+  /* greys */
+  --white: #ffffff;
+  --grey-100: #f3f2ee;
+  --grey-200: #e8e5dd;
+  --grey-300: #d7d7cc;
+  --grey-400: #d1cabb;
+  --grey-500: #c5bdaa;
+  --grey-600: #b1aa99;
+  --grey-700: #8a8477;
+  --grey-800: #635f55;
+  --grey-900: #3b3933;
+  --black: #000000;
+
+    /* Status Greens */
+  --status-green: #5A7A57;
+  --status-green-lighter: #7C9C79;
+  --status-green-darker: #436040;
+
+  
+  /* Status Reds */
+  --status-red: #A23B2A;
+  --status-red-lighter: #C25B49;
+  --status-red-darker: #822D22;
+}
+
+.wallpaper-bg {
+  /* best attempt at the wallpaper effect */
+  background: repeating-linear-gradient(
+    90deg,
+    rgb(from var(--pink) r g b / 0.2),
+    rgb(from var(--pink) r g b / 0.2) 2px,
+    var(--bg) 2px,
+    var(--bg) 30px,
+    rgb(from var(--pink) r g b / 0.2) 30px,
+    rgb(from var(--pink) r g b / 0.2) 34px,
+    rgb(from var(--ib-lighter) r g b / 0.05) 34px,
+    rgb(from var(--ib-lighter) r g b / 0.05) 62px,
+    rgb(from var(--pink) r g b / 0.2) 64px
+  );
+
+  &.blur {
+    filter: blur(2px);
+  }
+}

@@ -1,0 +1,109 @@
+/* normal page layout */
+body {
+  background-color: var(--bg);
+  margin: 0;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns:
+    [extra-start full-start] var(--body-padding)
+    [full-pad-start pad-start] 1fr
+    [content-start] minmax(0, var(--text-maxwidth)) [content-end]
+    1fr [full-pad-end pad-end]
+    var(--body-padding) [extra-end full-end];
+  grid-template-rows: auto 1fr auto;
+}
+
+@media only screen and (min-width: 878px) {
+  body {
+    grid-template-columns:
+      [extra-start full-start] var(--body-padding)
+      [full-pad-start] 1fr
+      [pad-start] var(--body-padding)
+      [content-start] var(--text-maxwidth) [content-end]
+      var(--body-padding) [pad-end]
+      1fr [full-pad-end]
+      var(--body-padding) [extra-end full-end];
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  body {
+    grid-template-columns:
+      [extra-start] 1fr
+      [full-start] var(--body-padding)
+      [full-pad-start] 197px
+      [pad-start] var(--body-padding)
+      [content-start] var(--text-maxwidth) [content-end]
+      var(--body-padding) [pad-end]
+      197px [full-pad-end]
+      var(--body-padding) [full-end]
+      1fr [extra-end];
+  }
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+header, footer {
+  grid-column: extra-start/extra-end;
+}
+
+main.page {
+  margin-top: var(--minim);
+  margin-bottom: var(--breve);
+  min-height: calc(100vh - var(--header-height));
+  overflow: hidden;
+}
+
+main,
+.tw {
+  grid-column: content-start / content-end;
+}
+
+.mw {
+  grid-column: pad-start / pad-end;
+}
+
+.fw {
+  grid-column: full-pad-start / full-pad-end;
+}
+
+main.centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* dashboard layout */
+.sidebar-layout {
+  grid-column: full-pad-start / full-pad-end;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "main" "nav";
+  grid-template-rows: minmax(calc(100dvh - var(--header-height)), 1fr) auto;
+  column-gap: var(--semibreve);
+  align-items: start;
+  min-height: calc(100svh - var(--header-height));
+}
+
+@media (max-width: 639px) {
+  .sidebar-layout.no-mobile-sidebar > .sidebar {
+    display: none;
+  }
+}
+
+@media (min-width: 640px) {
+  .sidebar-layout {
+    grid-template-columns: 240px 1fr;
+    grid-template-areas: "nav main";
+    grid-template-rows: auto;
+  }
+}
+
+.sidebar-main {
+  grid-area: main;
+  padding-top: var(--minim);
+  height: 100%;
+  min-width: 0;
+}

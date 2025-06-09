@@ -1,0 +1,97 @@
+/* carousel buttons */
+.carousel-button {
+  /* positioning */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  &.right {
+    right: var(--minim);
+    & > .carousel-button-icon {
+      transform: translateX(2px);
+    }
+  }
+  &.left {
+    left: var(--minim);
+    & > .carousel-button-icon {
+      transform: translateX(-2px);
+    }
+  }
+
+  /* design */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(from var(--gold) r g b / 0.1);
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(from var(--gold) r g b / 0.3);
+  }
+
+  &:active {
+    background-color: rgb(from var(--gold) r g b / 0.6);
+  }
+
+  /* not visible when not hovering on container */
+  opacity: 0;
+  transition: opacity 250ms ease-in-out;
+}
+
+.carousel-button-icon {
+  width: 24px;
+  height: 24px;
+  fill: var(--gold);
+}
+
+@media only screen and (width <= 640px) {
+  .carousel-button {
+    display: none;
+  }
+}
+
+/* key components */
+.carousel-container {
+  position: relative;
+  &:hover > .carousel-button {
+    opacity: 1;
+  }
+}
+
+.carousel-slides-container {
+  width: 100%;
+  height: 100%;
+  scroll-snap-type: x mandatory;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+
+  &.smooth-scroll {
+    scroll-behavior: smooth;
+  }
+
+  /* remove scrollbar visibility */
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* prevent scrolling on not-mobile (it feels kinda jank) */
+@media only screen and (width > 640px) {
+  .carousel-slides-container {
+    overflow-x: hidden;
+  }
+}
+
+
+.carousel-slide {
+  scroll-snap-align: center;
+}

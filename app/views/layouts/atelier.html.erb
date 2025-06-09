@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <%= render "layouts/head" %>
+
+  <body data-controller="hamburger">
+    <%= render "layouts/atelier_header" %>
+    <%= render "layouts/atelier_hamburger" %>
+
+    <div class="sidebar-layout fw no-mobile-sidebar">
+      <%= render partial: "layouts/atelier_sidebar" %>
+
+      <main class="sidebar-main">
+        <%= yield %>
+      </main>
+    </div>
+
+    <%= turbo_frame_tag "modal-frame" %>
+
+    <div id="toast-container">
+      <%= render "layouts/flash" %>
+    </div>
+  </body>
+</html>

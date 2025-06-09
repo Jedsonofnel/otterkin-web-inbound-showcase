@@ -1,0 +1,14 @@
+<%= turbo_frame_tag "new-subscriber" do %>
+  <div class="stack center mv">
+    <p class="subscriber-thanks-msg">Fabulous! Check your emails to confirm the subscription.</p>
+  </div>
+
+  <p class="caption">
+    When you sign up here, we will send you
+    <em>one</em>
+    email, whereby you can opt-in (by pressing the "Confirm email address"
+    link) to further communication, like our newsletter and other important
+    announcemenets. You can see our privacy policy
+    <%= link_to "here", privacy_policy_path %>.
+  </p>
+<% end %>

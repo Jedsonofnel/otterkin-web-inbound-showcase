@@ -1,0 +1,45 @@
+.filter-form-bar {
+  width: 100%;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: var(--minim);
+  row-gap: var(--quaver);
+
+  &:has(+ .table-container.padded) {
+    margin-bottom: -12px;
+  }
+
+  & p {
+    margin: 0;
+  }
+}
+
+@media only screen and (width < 640px) {
+  .filter-form-bar {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+
+.filter-form-bar-text {
+  font-weight: bold;
+}
+
+.filter-form-bar-field-container {
+  display: flex;
+  align-items: center;
+  gap: var(--crotchet);
+  font-size: 1rem;
+}
+
+@media only screen and (width < 640px) {
+  .filter-form-bar-field-container {
+    font-size: 1rem;
+  }
+}
+
+.filter-form-bar-button {
+  margin-left: auto;
+}

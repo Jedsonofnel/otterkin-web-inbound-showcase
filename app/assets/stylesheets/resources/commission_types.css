@@ -1,0 +1,68 @@
+/* commission type box */
+.commission-types-box {
+  border: 1px solid var(--fg);
+  border-radius: var(--crotchet);
+  padding: var(--minim);
+  display: flex;
+  flex-direction: column;
+}
+
+.commission-types-box-display-title {
+  font-weight: 400;
+  margin-bottom: var(--minim);
+
+  & > span.small {
+    font-size: 1rem;
+    font-family: var(--font-sans);
+  }
+}
+
+.commission-types-box-display-details-container {
+  display: flex;
+  gap: var(--crotchet);
+  flex-wrap: wrap;
+}
+
+.commission-type-detail-pip {
+  padding: var(--quaver) var(--crotchet);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  border: 1px solid var(--fg);
+}
+
+.commission-types-box-title {
+  font-family: var(--font-sans);
+  font-size: 1.35rem;
+  text-transform: none;
+}
+
+.commission-types-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 var(--crotchet);
+  max-height: 300px;
+  overflow-y: scroll;
+  margin-bottom: var(--minim);
+}
+
+.commission-type-label {
+  display: block;
+  padding: var(--quaver);
+  background-color: var(--bg);
+  border: 2px solid var(--bg);
+  cursor: pointer;
+
+  &:has(input[type="radio"]:checked) {
+    border: 2px solid var(--grey-300);
+    background-color: var(--grey-100);
+  }
+
+  &:hover {
+    background-color: white;
+  }
+}
+
+.commission-type-radio {
+  display: none;
+}

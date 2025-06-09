@@ -1,0 +1,79 @@
+/* main layout thing */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--crotchet);
+
+  &.centered {
+    width: min(100%, 320px);
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &.mv {
+    margin-top: var(--semibreve);
+    margin-bottom: var(--semibreve);
+  }
+
+  & > input[type="submit"] {
+    margin-top: var(--minim);
+  }
+
+  &.limited {
+    width: min(100%, 320px);
+  }
+}
+
+/* multipart form */
+form.multipart-form {
+  & > div {
+    width: 100%;
+  }
+}
+
+/* required asterisk */
+label.required {
+  &::after {
+    content: "*";
+    font-family: var(--font-sans);
+    font-size: 1em;
+    color: red;
+  }
+}
+
+/* messages */
+.form-message {
+  display: block;
+  padding: var(--crotchet);
+  margin-top: var(--minim);
+  background-color: var(--grey-200);
+  color: var(--fg);
+  border-radius: var(--crotchet);
+
+  &[hidden=""] {
+    display: none;
+  }
+}
+
+.form-checkbox-inline-container {
+  display: flex;
+  align-items: center;
+  gap: var(--crotchet);
+  font-family: var(--font-sans);
+
+  & > p {
+    margin: 0;
+  }
+}
+
+.form-checkbox-inline {
+  display: flex;
+  gap: var(--crotchet);
+  align-items: center;
+
+  & > p {
+    margin: 0;
+    line-height: 1;
+  }
+}

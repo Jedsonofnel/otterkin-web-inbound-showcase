@@ -1,0 +1,143 @@
+<main class="page fw">
+  <div class="artistpage-gallery-button-container">
+    <div class="artistpage-gallery-container">
+      <div class="artistpage-gallery">
+        <% @artist_draft.artworks.order(created_at: "asc").limit(5).each do |artwork| %>
+          <%= image_tag url_for(artwork), class: "artwork-img" %>
+        <% end %>
+      </div>
+    </div>
+    <%= link_to "View Gallery",
+    convert_artist_draft_path(@artist_draft, token: @token),
+    class: "artistpage-gallery-button button outline bg" %>
+  </div>
+
+  <div class="artistpage-grid-container">
+    <div class="artistpage-main-container">
+      <div class="artistpage-title-container">
+        <div class="stack row center">
+          <h1 class="artistpage-title">
+            <%= @artist_draft.first_name %>
+            <%= @artist_draft.last_name %>
+          </h1>
+
+          <% if @token.present? || admin? %>
+            <%= link_to "Sign up",
+            convert_artist_draft_path(@artist_draft, token: @token),
+            class: "button outline" %>
+          <% end %>
+        </div>
+
+        <p>
+          <%= @artist_draft.biography %>
+        </p>
+      </div>
+
+      <div class="artistpage-details-container">
+        <div>
+          <p><span style="font-weight: 500;">Location:</span>
+            <%= @artist_draft.location %></p>
+        </div>
+
+        <p class="artistpage-tags">
+          <span class="artistpage-tag-label">Styles:</span>
+          <% @artist_draft.data["style_tags"].each do |tag| %>
+            <span class="artistpage-tag"><%= tag %></span>
+          <% end %>
+        </p>
+
+        <p class="artistpage-tags">
+          <span class="artistpage-tag-label">Mediums:</span>
+          <% @artist_draft.data["medium_tags"].each do |tag| %>
+            <span class="artistpage-tag"><%= tag %></span>
+          <% end %>
+        </p>
+
+        <p class="artistpage-tags">
+          <span class="artistpage-tag-label">Subjects:</span>
+          <% @artist_draft.data["subject_tags"].each do |tag| %>
+            <span class="artistpage-tag"><%= tag %></span>
+          <% end %>
+        </p>
+
+        <div>
+          <p>
+            <em>This artist can work remotely</em>
+          </p>
+        </div>
+
+        <div>
+          <p>
+            <span style="font-weight: 500;">Availability:</span>
+            <%= @artist_draft.first_name %>
+            normally takes 5 days to finish a piece.</p>
+        </div>
+      </div>
+
+      <div class="artistpage-about-container">
+        <h3>Get to know
+          <%= @artist_draft.first_name %></h3>
+
+        <div class="artistpage-qna-container">
+          <% @artist_draft.data["questions"].each do |question| %>
+            <p class="artistpage-qna-question"><%= question["question"] %></p>
+            <p class="artistpage-qna-answer"><%= question["answer"] %></p>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+
+    <%= form_with url: convert_artist_draft_path(@artist_draft, token: @token), method: :get, data: {controller: "commission-box", commission_box_target: "form"} do |form| %>
+      <%= render partial: "artists/commission_types",
+      locals: {
+        commission_types: @artist_draft.mock_commission_types_for_display,
+        selected: nil,
+        form: form,
+      } %>
+    <% end %>
+  </div>
+
+  <hr class="mh">
+
+  <div class="stack center">
+    <h3>Want to share
+      <%= @token.present? || admin? ? "or delete" : "" %>
+      this draft page?</h3>
+
+    <div
+      class="stack center gap-m"
+      data-controller="clipboard"
+      data-clipboard-copied-class="copied"
+    >
+      <div class="clipboard-container">
+        <em>Share:</em>
+        <input
+          data-clipboard-target="source"
+          type="text"
+          value="<%= artist_draft_url(@artist_draft) %>"
+          readonly
+          class="clipboard-link"
+        >
+        <button
+          class="button outline clipboard-button"
+          data-action="clipboard#copy"
+          data-clipboard-target="button"
+        >Copy</button>
+      </div>
+
+      <% if @token.present? || admin? %>
+        <div class="stack row">
+          <%= link_to "Sign up",
+          convert_artist_draft_path(@artist_draft, token: @token),
+          class: "button outline" %>
+
+          <%= button_to "Delete",
+          artist_draft_path(@artist_draft, token: @token),
+          method: :delete,
+          class: "button outline danger" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</main>

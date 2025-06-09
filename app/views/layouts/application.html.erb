@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <%= render "layouts/head" %>
+
+  <body data-controller="hamburger scroll-top">
+    <%= render "layouts/header_bar" %>
+    <%= render "layouts/hamburger_default" %>
+
+    <%= yield %>
+
+    <%= render "layouts/footer" %>
+
+    <%= turbo_frame_tag "modal-frame" %>
+
+    <div id="toast-container">
+      <%= render "layouts/flash" %>
+    </div>
+  </body>
+</html>

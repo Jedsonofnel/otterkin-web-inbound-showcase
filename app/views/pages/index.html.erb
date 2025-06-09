@@ -1,0 +1,152 @@
+<main class="homepage">
+  <section class="homepage-hero-section tw">
+    <%= image_tag "logo-mb.svg", class: "hero-logo" %>
+    <p class="hero-logo-tagline">Fine art commissions</p>
+
+    <p style="text-align: center;">
+      We're reimagining art commissioning. We make it easy for you to discover
+      and commission fine artists, and turn moments into masterpieces, directly
+      through Otterkin.
+    </p>
+    <p style="text-align: center;">Cultural tradition with 21st-century simplicity</p>
+
+    <%= link_to "Join the waitlist",
+    "#subscribe",
+    class: "button cta",
+    style: "margin-top: var(--semibreve);" %>
+  </section>
+
+  <section class="homepage-section tw margin-top" id="about">
+    <h2 class="homepage-oversized-h2">Commissioning fit for the 21st century</h2>
+    <p>
+      Art commissioning is broken, so we're fixing it. No hefty gallery fees or
+      endless scrolling through social media. Commission stunning artwork
+      directly through Otterkin in just three simple steps. Secure. Seamless.
+      Straightforward.
+    </p>
+    <p style="font-weight: 500;">Better for artists. Better for you.</p>
+  </section>
+
+  <section class="homepage-section step">
+    <div class="homepage-step-container" image="first">
+      <%= image_tag "homepage/phone-render.png", class: "homepage-step-image" %>
+      <div class="homepage-step-text-container">
+        <p style="text-transform: uppercase;">Step 1</p>
+        <h3 class="homepage-step-title">A Spark</h3>
+        <p class="homepage-step-description">
+          You start with an idea - a person, a memory, a moment - something
+          worth turning into something lasting
+        </p>
+        <%= link_to root_path, class: "button outline dark-blue" do %>
+          Details
+          <%= render_icon "arrow-right", classes: "button-icon" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="homepage-step-container" image="last">
+      <div class="homepage-step-text-container">
+        <p style="text-transform: uppercase;">Step 2</p>
+        <h3 class="homepage-step-title">A Connection</h3>
+        <p class="homepage-step-description">
+          You find the right artist – explore profiles, message directly, and
+          commission with confidence. Otterkin makes every step simple, secure,
+          and inspiring.
+        </p>
+        <%= link_to root_path, class: "button outline dark-blue" do %>
+          Details
+          <%= render_icon "arrow-right", classes: "button-icon" %>
+        <% end %>
+      </div>
+      <%= image_tag "homepage/laptop-render.png", class: "homepage-step-image" %>
+    </div>
+
+    <div class="homepage-step-container" image="first">
+      <%= image_tag "homepage/chaise-longue.png", class: "homepage-step-image" %>
+      <div class="homepage-step-text-container">
+        <p style="text-transform: uppercase;">Step 3</p>
+        <h3 class="homepage-step-title">A Masterpiece</h3>
+        <p class="homepage-step-description">
+          Your artwork arrives. Framed, signed, and ready to hang. One of one.
+          Forever yours.
+        </p>
+        <%= link_to root_path, class: "button outline dark-blue" do %>
+          Details
+          <%= render_icon "arrow-right", classes: "button-icon" %>
+        <% end %>
+      </div>
+    </div>
+  </section>
+
+  <section class="homepage-section border-top tw">
+    <h2 class="homepage-oversized-h2">Better for artists, better for you</h2>
+    <p>We're restoring the dignity of patronage, renewing a culture where
+      personal, lasting works are made not for walls alone, but for
+      generations.
+    </p>
+
+    <div class="homepage-iconed-details-container">
+      <div class="stack col center">
+        <%= render_icon "search" %>
+        <p style="text-align: center;">
+          Discover and commission artists with ease - filter by style, subject
+          and price.
+        </p>
+      </div>
+
+      <div class="stack col center">
+        <%= render_icon "comment" %>
+        <p style="text-align: center;">
+          Shape your vision with the artist using our seamless in-platform
+          messaging system.
+        </p>
+      </div>
+
+      <div class="stack col center">
+        <%= render_icon "paintbrush" %>
+        <p style="text-align: center;">
+          Celebrate your masterpiece - a unique creation brought to life by
+          you.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="subscribe" class="homepage-section border-top tw">
+    <h2 class="homepage-oversized-h2">Join the 200+ people on the waitlist</h2>
+    <p style="font-weight: 500;">
+      Are you an artist? We'd love to hear from you - introduce yourself by
+      sending and email to
+      <%= mail_to "introduction@#{inbound_email_domain}" %>.
+    </p>
+
+    <p>Be the first to commission original art when we launch this Autumn. Early
+      members receive priority access and exclusive benefits.</p>
+
+    <%= turbo_frame_tag "new-subscriber", src: new_subscriber_path %>
+  </section>
+
+  <%= turbo_frame_tag "artist-spotlight",
+  src: spotlight_path(id: "random"),
+  class: "homepage-spotlight-section tw" %>
+
+  <section id="articles" class="homepage-section tw border-top">
+    <h2 class="homepage-oversized-h2">Peak behind the scenes</h2>
+    <p>Whilst we are hard at work building the platform, we'd love to keep you
+      in the loop with our blog,
+      <%= link_to "The Commonplace", articles_path %>. Here are a selection of recent posts:
+    </p>
+
+    <%= turbo_frame_tag "articles-index",
+    src: articles_path(limit: 3),
+    class: "articles-list-container" %>
+
+    <div class="stack center mv">
+      <%= link_to "Read more", articles_path, class: "button outline" %>
+    </div>
+
+    <div class="homepage-logoo-container">
+      <%= image_tag "logoo-mb.svg", class: "homepage-bottom-logoo" %>
+    </div>
+  </section>
+</main>

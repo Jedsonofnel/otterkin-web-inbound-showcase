@@ -1,0 +1,18 @@
+# just need to overwrite things in the other jobby
+service: otterkin-web-dev
+image: avian-azimuth-462017-k3/rails-app/otterkin-web-dev
+servers:
+  web:
+    - dev.otterkin.co.uk
+proxy:
+  host: dev.otterkin.co.uk
+  ssl: true
+env:
+  clear:
+    DEPLOYMENT_ENVIRONMENT: dev
+    MAILER_HOST: dev.otterkin.co.uk
+ssh:
+  user: jedn
+  keys_only: true
+  keys: ["~/.ssh/gcp_dev_id_ed25519"]
+  config: true

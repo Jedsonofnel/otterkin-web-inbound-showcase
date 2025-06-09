@@ -1,0 +1,45 @@
+/* account settings stuff */
+.users-profile-image {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 200px;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: center;
+}
+
+.users-profile-image-form-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.users-settings-container {
+  border-radius: var(--crotchet);
+  border: 1px solid var(--grey-800);
+  margin-top: var(--minim);
+  padding: var(--crotchet);
+  display: flex;
+  flex-direction: column;
+  gap: var(--crotchet);
+}
+
+.users-email-verification-status-container {
+  width: 100%;
+  border-radius: var(--crotchet);
+  border: 1px solid var(--grey-800);
+  margin-top: var(--minim);
+  padding: var(--crotchet);
+
+  &.unverified {
+    background-color: rgb(from var(--pink) r g b / 0.3);
+  }
+}

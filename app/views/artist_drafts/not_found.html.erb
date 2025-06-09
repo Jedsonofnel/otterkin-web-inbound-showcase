@@ -1,0 +1,16 @@
+<main class="page">
+  <h1>Artist draft not found</h1>
+
+  <p>It looks like the link you followed to see your draft artist profile has
+    been removed from our system. This happens automatically after 30 days for
+    privacy reasons.</p>
+
+  <p><em>Not to worry though!</em>
+    You can easily re-introdue yourself (and generate another draft profile) by
+    sending an email to
+    <%= mail_to "introduction@#{inbound_email_domain}" %></p>
+
+  <p>And while you're here - have you subscribed to our newsletter? If you are
+    excited about Otterkin and want to get regular updates, then you can
+    <%= link_to "join up here", new_subscriber_path %>.</p>
+</main>

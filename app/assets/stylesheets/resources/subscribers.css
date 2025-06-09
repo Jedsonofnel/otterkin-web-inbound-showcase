@@ -1,0 +1,40 @@
+/* index stuff */
+.subscriber-list-container {
+  width: 100%;
+  padding: var(--crotchet);
+  border: 1px solid var(--grey-300);
+  border-radius: var(--minim);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.subscriber-list-email {
+  padding: var(--quaver) var(--crotchet);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--grey-100);
+  }
+}
+
+#new-subscriber {
+  width: min(400px, 100%);
+  max-width: 100%;
+
+  & > .form {
+    max-width: 100%;
+  }
+}
+
+/* suscriber/show modal */
+.subscriber-modal-invite-container {
+  display: flex;
+  align-items: center;
+  gap: var(--crotchet);
+  margin-top: -16px;
+  margin-bottom: var(--minim);
+
+  & > p {
+    margin: 0;
+  }
+}

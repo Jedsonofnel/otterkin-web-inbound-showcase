@@ -1,0 +1,102 @@
+<main class="page tw">
+  <h1>UI showcase</h1>
+  <p>This is only available in dev don't worry.</p>
+
+  <h2>Buttons</h2>
+  <div class="ui-buttons-container">
+    <p></p>
+    <p>Text</p>
+    <p>Icon</p>
+
+    <p>Primary/default</p>
+    <button class="button">Action</button>
+    <button class="button">
+      Action
+      <%= render_icon "arrow-head-right", classes: "button-icon" %>
+    </button>
+
+    <p>Soft</p>
+    <button class="button soft">Action</button>
+    <button class="button soft">
+      Action
+      <%= render_icon "arrow-head-right", classes: "button-icon" %>
+    </button>
+
+    <p>Outline</p>
+    <button class="button outline">Action</button>
+    <button class="button outline">
+      Action
+      <%= render_icon "arrow-head-right", classes: "button-icon" %>
+    </button>
+
+    <p>Small Primary</p>
+    <button class="button small">Action</button>
+    <button class="button small">
+      Action
+      <%= render_icon "arrow-head-right", classes: "button-icon" %>
+    </button>
+
+    <p>Small Soft</p>
+    <button class="button soft small">Action</button>
+    <button class="button soft small">
+      Action
+      <%= render_icon "arrow-head-right", classes: "button-icon" %>
+    </button>
+
+    <p>Small Outline</p>
+    <button class="button outline small">Action</button>
+    <button class="button outline small">
+      Action
+      <%= render_icon "arrow-head-right", classes: "button-icon" %>
+    </button>
+
+    <p>Disabled (attribute)</p>
+    <button class="button" disabled>Action</button>
+    <button class="button" disabled>
+      Action
+      <%= render_icon "arrow-head-right", classes: "button-icon" %>
+    </button>
+
+    <p>Disabled (class)</p>
+    <button class="button disabled">Action</button>
+    <button class="button disabled">
+      Action
+      <%= render_icon "arrow-head-right", classes: "button-icon" %>
+    </button>
+
+    <p>Text</p>
+    <button class="button text">Action</button>
+    <p></p>
+
+    <p>Rails button_to</p>
+    <%= button_to "Action", "/ui-showcase", class: "button" %>
+    <p></p>
+
+    <p>Link that looks like a button</p>
+    <%= link_to "Action", "/ui-showcase", class: "button" %>
+    <p></p>
+
+    <p>Link</p>
+    <a href="/ui-showcase">Link</a>
+    <p></p>
+
+    <p>Rails link_to</p>
+    <%= link_to "Link", "/ui-showcase" %>
+    <p></p>
+  </div>
+
+  <h2>Buttons (dark bg)</h2>
+  <div class="ui-buttons-container dark">
+    <p></p>
+    <p>Text</p>
+    <p>Icon</p>
+
+    <p>Primary/default</p>
+    <button class="button dark">Action</button>
+    <button class="button dark">
+      Action
+      <%= render_icon "arrow-head-right", classes: "button-icon" %>
+    </button>
+    <p></p>
+  </div>
+</main>

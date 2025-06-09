@@ -1,0 +1,17 @@
+# Omakase Ruby styling for Rails
+inherit_gem: {rubocop-rails-omakase: rubocop.yml}
+Layout/ParameterAlignment:
+  Enabled: true
+  EnforcedStyle: with_first_parameter
+Layout/ArgumentAlignment:
+  Enabled: true
+  EnforcedStyle: with_first_argument
+Layout/EmptyLinesAroundArguments:
+  Enabled: true
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: true
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: no_space
+Style/TrailingCommaInArguments:
+  Enabled: true
+  EnforcedStyleForMultiline: no_comma

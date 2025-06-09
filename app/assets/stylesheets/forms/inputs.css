@@ -1,0 +1,253 @@
+/* divs wrapping labels and input */
+.field-wrapper {
+  width: 100%;
+
+  &.horizontal {
+    display: flex;
+    justify-content: space-between;
+    flex-shrink: 0;
+    align-items: center;
+
+    &.left {
+      justify-content: start;
+    }
+  }
+}
+
+.field-horizontal-container {
+  display: flex;
+  gap: var(--crotchet);
+}
+
+.field-topmatter-container {
+  display: flex;
+  align-items: center;
+  padding: var(--semiquaver) 0;
+}
+
+.field-topmatter-status {
+  font-family: var(--font-sans);
+  margin-left: auto;
+  padding: 0 var(--quaver);
+  border-radius: var(--quaver);
+
+  &.good {
+    background-color: rgb(from var(--fg-lightest) r g b / 0.3);
+  }
+
+  &.bad {
+    background-color: rgb(from var(--pink) r g b / 0.6);
+  }
+}
+
+/* labels */
+/* text */
+.input-text,
+.input-text-icon-wrapper {
+  background-color: var(--bg);
+  padding: var(--crotchet);
+  width: 100%;
+  border: 1px solid var(--grey-300);
+  outline: none;
+  border-radius: var(--crotchet);
+
+  /* for textareas */
+  resize: none;
+
+  &:focus-within {
+    border-color: var(--grey-800);
+  }
+}
+
+.input-text-icon-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--crotchet);
+
+  & > input {
+    border: none;
+    background: none;
+    flex: 200px 1 1;
+    outline: none;
+  }
+
+  /* stop icon from shrinking */
+  & > :first-child {
+    flex-shrink: 0;
+  }
+}
+
+.input-icon {
+  color: var(--gold);
+}
+
+/* numbers */
+.input-number {
+  background-color: var(--bg);
+  padding: var(--crotchet);
+  width: 100%;
+  border: 1px solid var(--grey-300);
+  outline: none;
+  border-radius: var(--minim);
+
+  &:focus-within {
+    border-color: var(--grey-800);
+  }
+
+  &.small {
+    width: 5rem;
+    padding: var(--semiquaver) var(--quaver);
+    border-radius: var(--quaver);
+  }
+}
+
+/* checkbox */
+.checkbox-label-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--crotchet);
+  & > * {
+    flex-shrink: 0;
+  }
+}
+
+.checkbox-box {
+  margin: 0;
+  appearance: none;
+  font: inherit;
+  color: currentColor;
+
+  --size: 1.1em;
+  width: var(--size);
+  height: var(--size);
+  border: 2px solid var(--fg);
+  border-radius: var(--quaver);
+  cursor: pointer;
+
+  display: grid;
+  place-content: center;
+
+  &::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--fg);
+    background-color: CanvasText;
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  }
+
+  &:checked::before,
+  &.checked::before {
+    transform: scale(1);
+  }
+
+  &:disabled {
+    cursor: default;
+    border: 2px solid rgb(from var(--fg) r g b / 0.2);
+  }
+}
+
+.checkbox-status {
+  width: 3rem;
+  text-align: center;
+  padding: 0 var(--quaver);
+  border-radius: var(--quaver);
+
+  &.is-active {
+    background-color: rgb(from var(--fg-lightest) r g b / 0.3);
+  }
+
+  &.is-inactive {
+    background-color: rgb(from var(--pink) r g b / 0.6);
+  }
+}
+
+/* file upload */
+.input-file-hidden {
+  display: none;
+}
+
+/* select button */
+.input-select {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  padding: var(--quaver) var(--crotchet);
+  padding-right: calc(var(--crotchet) + 1.2em);
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--fg);
+  cursor: inherit;
+  line-height: 1;
+
+  &.dark {
+    color: var(--shw);
+  }
+
+  &[disabled] {
+    color: var(--grey-800);
+  }
+}
+
+.input-select-container {
+  border-radius: var(--quaver);
+  font-family: var(--font-sans);
+  line-height: 1.1;
+  appearance: none;
+  background: none;
+  border: 1px solid var(--grey-800);
+  cursor: pointer;
+  min-width: 8ch;
+  max-width: 15ch;
+  position: relative;
+
+  &.dark {
+    border-color: var(--grey-200);
+  }
+
+  &::after {
+    content: "";
+    width: 0.8em;
+    height: 0.5em;
+    background-color: var(--fg);
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+    position: absolute;
+    right: var(--crotchet);
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  &.dark::after {
+    background-color: var(--shw);
+  }
+
+  &:has(.input-select[disabled]) {
+    cursor: default;
+    border-color: var(--grey-300);
+
+    &.dark {
+      border-color: var(--grey-600);
+    }
+    
+    &::after {
+      background-color: var(--grey-300);
+    }
+
+    &.dark::after {
+      background-color: var(--grey-600);
+    }
+  }
+}
+
+.input-select-container,
+.input-select-container::after {
+  grid-area: select;
+}

@@ -1,0 +1,37 @@
+<div class="hamburger-menu" data-hamburger-target="menu" hidden>
+  <ul class="hamburger-menu-ul">
+    <li class="hamburger-menu-li">
+      <%= link_to "Overview", artist_atelier_path %>
+    </li>
+    <li class="hamburger-menu-li">
+      <%= link_to "Incoming commissions", artist_atelier_incoming_commissions_path %>
+    </li>
+    <li class="hamburger-menu-li">
+      <%= link_to "Active commissions", artist_atelier_active_commissions_path %>
+    </li>
+
+    <% if @artist.commissions.length > 0 %>
+      <div class="hamburger-subsection" id="atelier-hamburger-commission-list">
+        <% @artist.commissions.where.not(stage: :incoming).each do |commission| %>
+          <li class="hamburger-menu-li">
+            <%= link_to "#{commission.user.first_name} #{commission.user.last_name}",
+            artist_atelier_commission_path(commission) %>
+          </li>
+        <% end %>
+      </div>
+    <% end %>
+
+    <li class="hamburger-menu-li">
+      <%= link_to "Finished commissions", artist_atelier_finished_commissions_path %>
+    </li>
+
+    <div class="hamburger-menu-bottom">
+      <li class="hamburger-menu-li">
+        <%= link_to "Home", root_path %>
+      </li>
+      <li class="hamburger-menu-li">
+        <%= link_to "My Account", dashboard_settings_path %>
+      </li>
+    </div>
+  </ul>
+</div>

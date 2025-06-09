@@ -1,0 +1,112 @@
+<main class="page">
+  <h1>Join the Waitlist</h1>
+
+  <p style="font-weight: 500;">
+    Are you an artist? We'd love to hear from you - introduce yourself by
+    sending and email to
+    <%= mail_to "introduction@#{inbound_email_domain}" %>.
+  </p>
+
+  <%= turbo_frame_tag "new-subscriber" do %>
+    <%= form_with model: @subscriber, class: "form centered mv", data: {controller: "multipart-form"} do |form| %>
+      <!-- Honeypot for bots -->
+      <div style="display:none">
+        <%= label_tag :nickname, "Leave this field blank" %>
+        <%= text_field_tag :nickname %>
+      </div>
+      <!-- Allows us to test speedy responses -->
+      <%= hidden_field_tag :form_loaded_at, Time.current.to_i %>
+
+      <%= form_error_notification(@subscriber) %>
+      <div class="field-wrapper">
+        <%= form.label :email_address %>
+        <%= form.email_field :email_address,
+                         required: true,
+                         placeholder: "Your email",
+                         class: "input-text" %>
+      </div>
+      <!-- will hide any content after nextButton until pressed -->
+      <button
+        class="button cta"
+        data-multipart-form-target="nextButton"
+        data-action="multipart-form#next"
+        type="button"
+      >Join</button>
+
+      <p class="fw form-message">We'd actually love to know your name too!
+      </p>
+
+      <div class="field-wrapper">
+        <%= form.label :first_name %>
+        <%= form.text_field :first_name,
+                        class: "input-text",
+                        required: true,
+                        placeholder: "Your first name" %>
+      </div>
+
+      <div class="field-wrapper">
+        <%= form.label :last_name %>
+        <%= form.text_field :last_name,
+                        class: "input-text",
+                        required: true,
+                        placeholder: "Your last name" %>
+      </div>
+
+      <div class="field-wrapper">
+        <%= form.label :artist, class: "checkbox-label-wrapper" do %>
+          Are you an artist?
+          <%= form.checkbox :artist,
+                        class: "checkbox-box",
+                        data: {
+                          "multipart-form-target" => "optionalCheckbox",
+                          "optional-group" => "artist",
+                          :action => "click->multipart-form#toggleOptionals",
+                        } %>
+        <% end %>
+      </div>
+
+      <p
+        data-multipart-form-target="optionalField"
+        data-optional-group="artist"
+        class="form-message fw"
+      >
+        Brilliant, we'll be in touch. We'd love to know a bit about you in the
+        meantime if that's ok?
+      </p>
+
+      <div
+        class="field-wrapper"
+        data-multipart-form-target="optionalField"
+        data-optional-group="artist"
+      >
+        <%= form.label :instagram_handle %>
+        <%= form.text_field :instagram_handle,
+                        class: "input-text",
+                        placeholder: "Your instagram handle" %>
+      </div>
+
+      <div
+        class="field-wrapper"
+        data-multipart-form-target="optionalField"
+        data-optional-group="artist"
+      >
+        <%= form.label :introduction, "Tiny little biography" %>
+        <%= form.textarea :introduction,
+                      class: "input-text",
+                      placeholder: "What sort of art do you do?  Where are you based?",
+                      rows: 4 %>
+      </div>
+
+      <%= form.submit "Join", class: "button cta" %>
+    <% end %>
+
+    <p class="caption">
+      When you sign up here, we will send you
+      <em>one</em>
+      email, whereby you can opt-in (by pressing the "Confirm email address"
+      link) to further communication, like our newsletter and other important
+      announcemenets. You can see our privacy policy
+      <%= link_to "here", privacy_policy_path %>.
+    </p>
+  <% end %>
+</main>

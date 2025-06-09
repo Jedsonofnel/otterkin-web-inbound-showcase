@@ -1,0 +1,83 @@
+{
+  "introduction": false,
+  "biography": "John Smith is a multidisciplinary artist working in the renewable energy sector. His work explores themes of investment and opportunity.",
+  "location": "Your region",
+  "last_name": "Smith",
+  "first_name": "John",
+  "tags": {
+    "style_tags": [
+      "Realism",
+      "Contemporary",
+      "Technical",
+      "Detailed"
+    ],
+    "subject_tags": [
+      "Renewable Energy",
+      "Sustainable",
+      "Investment",
+      "Technology"
+    ],
+    "medium_tags": [
+      "Oil",
+      "Watercolor",
+      "Acrylic",
+      "Charcoal"
+    ]
+  },
+  "questions": [
+    {
+      "answer": "My art reflects my deep concern for sustainable energy. I want to inspire viewers to think about a future powered by renewable sources and the economic opportunities they provide.",
+      "question": "What inspires your art?"
+    },
+    {
+      "answer": "I aim to capture the grandeur and efficiency of renewable energy technologies. I focus on strong composition and realistic detail, using a variety of mediums to convey the beauty and potential of these systems.",
+      "question": "What is your artistic style and what do you aim to achieve with it?"
+    },
+    {
+      "answer": "I am working on a series of pieces that depict the global impact of renewable energy investments. These works will explore the environmental and economic benefits of these technologies, highlighting their potential to transform communities and economies around the world.",
+      "question": "What projects are you currently working on?"
+    }
+  ],
+  "commission_types": [
+    {
+      "price": 5000.0,
+      "subject": "Wind turbine",
+      "height": 12.0,
+      "unit": "inches",
+      "width": 12.0,
+      "medium": "Oil on canvas"
+    },
+    {
+      "height": 10.0,
+      "unit": "inches",
+      "price": 3000.0,
+      "subject": "Solar panel landscape",
+      "width": 15.0,
+      "medium": "Watercolor"
+    },
+    {
+      "subject": "Hydroelectric dam",
+      "width": 20.0,
+      "unit": "inches",
+      "height": 16.0,
+      "price": 4000.0,
+      "medium": "Acrylic on wood"
+    },
+    {
+      "price": 6000.0,
+      "subject": "Geothermal plant",
+      "unit": "inches",
+      "height": 14.0,
+      "width": 18.0,
+      "medium": "Mixed media collage"
+    },
+    {
+      "unit": "inches",
+      "height": 24.0,
+      "width": 30.0,
+      "subject": "Energy efficient building",
+      "price": 2500.0,
+      "medium": "Charcoal on paper"
+    }
+  ]
+}

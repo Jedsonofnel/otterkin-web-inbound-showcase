@@ -1,0 +1,80 @@
+<main class="page">
+  <h1 class="oversized">Ready to showcase your art?</h1>
+
+  <p>
+    That was a preview of your artist profile - imagine all the possibilities!
+    As an Otterkin Artist you'd be able to easily manage and accept
+    commissions, connect with clients and display your stunning portfolio to
+    the world.
+  </p>
+
+  <p>
+    We're still hard at work on our platform, trying to make it the best
+    possible experience for artists like you. By joining our waitlist, you'll
+    be among the first to know when we launch and get exclusive early access.
+  </p>
+
+  <p>
+    <em>Why join the waitlist?</em>
+  </p>
+  <ul class="typographic">
+    <li><em>Be a Pioneer:</em>
+      Get early access to the platform before it's widely available.</li>
+    <li><em>Exclusive Updates:</em>
+      Receive special announcements and sneak peaks.</li>
+    <li><em>Shape the Future:</em>
+      We're looking to start beta testing with artists soon, and your feedback
+      can help us refine the platform further.</li>
+  </ul>
+
+  <%= turbo_frame_tag "new-subscriber", src: new_subscriber_path %>
+
+  <p>
+    <em>What happens next?</em>
+    We'll send you an email asking you to confirm your addition to the
+    waitlist, so please follow that link to opt-in to all the goodies!
+  </p>
+
+  <hr class="mh">
+
+  <div class="stack center">
+    <h3>Want to share
+      <%= @token.present? || admin? ? "or delete" : "" %>
+      this draft page?</h3>
+
+    <div
+      class="stack center gap-m"
+      data-controller="clipboard"
+      data-clipboard-copied-class="copied"
+    >
+      <div class="clipboard-container">
+        <em>Share:</em>
+        <input
+          data-clipboard-target="source"
+          type="text"
+          value="<%= artist_draft_url(@artist_draft) %>"
+          readonly
+          class="clipboard-link"
+        >
+        <button
+          class="button outline clipboard-button"
+          data-action="clipboard#copy"
+          data-clipboard-target="button"
+        >Copy</button>
+      </div>
+
+      <% if @token.present? || admin? %>
+        <div class="stack row">
+          <%= link_to "Go back",
+          artist_draft_path(@artist_draft, token: @token),
+          class: "button outline" %>
+
+          <%= button_to "Delete",
+          artist_draft_path(@artist_draft, token: @token),
+          method: :delete,
+          class: "button outline danger" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</main>

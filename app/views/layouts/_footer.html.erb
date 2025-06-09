@@ -1,0 +1,47 @@
+<footer>
+  <div class="footer-content-container">
+    <div class="footer-logo-container">
+      <%= link_to root_path, class: "footer-logo-link" do %>
+        <%= image_tag "logo-mb.svg", class: "logo" %>
+      <% end %>
+
+      <div class="stack row">
+        <a class="icon-button" href="https://instagram.com/otterkinart/">
+          <%= render_icon "instagram" %>
+        </a>
+        <%= mail_to "hello@otterkin.art", class: "icon-button" do %>
+          <%= render_icon "mail" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="footer-links-container">
+      <ul class="footer-link-ul">
+        <li>
+          <%= link_to "Home", root_path, class: "footer-link" %>
+        </li>
+        <li>
+          <%= link_to "The Commonplace", articles_path, class: "footer-link" %>
+        </li>
+        <li>
+          <%= link_to "Privacy Policy", privacy_policy_path, class: "footer-link" %>
+        </li>
+        <li>
+          <%= link_to "Want to become an artist?", new_subscriber_path, class: "footer-link" %>
+        </li>
+      </ul>
+
+      <ul class="footer-link-ul">
+        <% if authenticated? %>
+          <li>
+            <%= button_to "Sign out", session_path, method: :delete, class: "button outline" %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "Admin Login", new_session_path, class: "button outline" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</footer>

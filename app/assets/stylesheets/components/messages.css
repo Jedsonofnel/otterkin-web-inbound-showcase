@@ -1,0 +1,21 @@
+.subscriber-thanks-msg {
+  display: block;
+  padding: var(--minim) var(--semibreve);
+  border-radius: var(--crotchet);
+  border: none;
+  text-align: center;
+  margin: 0;
+  background: var(--ib-lighter);
+  background: linear-gradient(135deg, var(--ib-lighter) 0%, var(--ib) 100%);
+  color: var(--shw);
+}
+
+.p-msg {
+  padding: var(--quaver) var(--crotchet);
+  border-radius: var(--quaver);
+  background-color: rgb(from var(--fg) r g b / 0.3);
+
+  &.alert {
+    background-color: rgb(from var(--pink) r g b / 0.6);
+  }
+}

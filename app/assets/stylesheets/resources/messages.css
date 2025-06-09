@@ -1,0 +1,295 @@
+.messaging-container {
+  width: 100%;
+  height: calc(100vh - var(--header-height));
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (640px <= width <= 814px) {
+  .messaging-container {
+    padding-left: var(--semibreve);
+    padding-right: var(--semibreve);
+  }
+}
+
+@media (min-width: 814px) {
+  .messaging-container {
+    width: var(--text-maxwidth);
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.messaging-widget-tf {
+  flex: 1;
+  overflow-y: scroll;
+}
+
+.messaging-widget {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr auto;
+}
+
+.messages {
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: var(--semiquaver);
+  padding: 0 var(--minim);
+  margin-bottom: var(--quaver);
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  gap: var(--quaver);
+  width: 100%;
+  position: relative;
+
+  /* top most message has margin to push messages down when not overflowing */
+  &:first-child {
+    margin-top: auto;
+  }
+
+  &.user {
+    justify-content: end;
+    & > .message-content {
+      background-color: var(--ib-lighter);
+      color: var(--shw);
+    }
+  }
+
+  &.user:not(:has(+ .user)) {
+    margin-bottom: var(--crotchet);
+  }
+
+  &.user:not(:has(+ .user)) > .message-content {
+    border-bottom-right-radius: 0;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0px;
+      width: 0;
+      height: 0;
+      border: 8px solid transparent;
+      border-top-color: var(--ib-lighter);
+      border-bottom: 0;
+      border-right: 0;
+      margin-bottom: -8px;
+    }
+  }
+
+  &.recipient {
+    flex-direction: row-reverse;
+    justify-content: start;
+    & > .message-content {
+      background-color: var(--grey-200);
+    }
+  }
+
+  &.recipient:not(:has(+ .recipient)) {
+    margin-bottom: var(--crotchet);
+  }
+
+  &.recipient:not(:has(+ .recipient)) > .message-content {
+    border-bottom-left-radius: 0;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0px;
+      width: 0;
+      height: 0;
+      border: 8px solid transparent;
+      border-top-color: var(--grey-200);
+      border-bottom: 0;
+      border-left: 0;
+      margin-bottom: -8px;
+    }
+  }
+
+  &:hover .message-button {
+    opacity: 1;
+  }
+}
+
+.message-content {
+  display: inline-block;
+  max-width: min(80%, 600px);
+  border-radius: var(--quaver);
+  padding: var(--crotchet);
+  margin: 0;
+  position: relative;
+
+  &.user {
+    background-color: var(--ib-lighter);
+    color: var(--shw);
+    border-bottom-right-radius: 0;
+    margin-bottom: var(--minim);
+  }
+
+  &.user::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-top-color: var(--ib-lighter);
+    border-bottom: 0;
+    border-right: 0;
+    margin-bottom: -8px;
+  }
+
+  &.recipient {
+    background-color: var(--grey-200);
+    border-bottom-left-radius: 0;
+    margin-bottom: var(--minim);
+  }
+
+  &.recipient::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0px;
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-top-color: var(--grey-200);
+    border-bottom: 0;
+    border-left: 0;
+    margin-bottom: -8px;
+  }
+
+  &.fw {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.message-button {
+  display: block;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--grey-200);
+  }
+  &:active {
+    background-color: var(--grey-300);
+  }
+}
+
+@media only screen and (max-width: 639px) {
+  .message-button {
+    position: absolute;
+    height: auto;
+    width: auto;
+    border-radius: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: transparent;
+    z-index: 10;
+
+    & > .vert-ellipsis {
+      visibility: hidden;
+    }
+
+    &:hover,
+    &:active {
+      background: transparent;
+    }
+  }
+}
+
+.message-meta {
+  font-style: italic;
+}
+
+.message-form {
+  flex: auto 0 0;
+  display: flex;
+  align-items: end;
+  width: 100%;
+  padding: var(--crotchet);
+  gap: var(--crotchet);
+}
+
+.message-input {
+  flex: 100px 1 1;
+
+  padding: var(--quaver);
+  border-radius: var(--quaver);
+  border: 1px solid var(--grey-200);
+  resize: none;
+  outline: none;
+  min-height: 30px;
+  max-height: 150px;
+  min-width: 0;
+
+  &:focus {
+    border-color: var(--grey-400);
+    outline: 1px solid var(--grey-500);
+  }
+}
+
+.message-submit {
+  flex: auto 0 0;
+  text-transform: none !important;
+  color: var(--bg);
+  background-color: var(--fg);
+  border: none;
+  padding: var(--crotchet);
+  border-radius: var(--quaver);
+
+  &[disabled] {
+    background-color: var(--grey-200);
+    color: var(--grey-500);
+  }
+}
+
+/* vertical ellipsis button */
+.vert-ellipsis {
+  display: block;
+  height: 4px;
+  width: 4px;
+  border-radius: 50%;
+  background-color: var(--grey-600);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    height: 4px;
+    width: 4px;
+    border-radius: 50%;
+    background-color: var(--grey-600);
+    position: absolute;
+  }
+
+  &::before {
+    transform: translate(0, -6px);
+  }
+
+  &::after {
+    transform: translate(0, 6px);
+  }
+}

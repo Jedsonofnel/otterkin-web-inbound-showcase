@@ -1,0 +1,186 @@
+/* commission page (show) */
+.commission-tf-container {
+  display: block;
+  height: 100%;
+}
+
+.commission-display {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.commission-display-title {
+  flex-shrink: 1;
+  margin-bottom: 0;
+}
+
+.commission-tab-bar {
+  display: flex;
+  gap: var(--minim);
+  padding: var(--quaver) 0;
+}
+
+.commission-tab-link {
+  color: var(--fg);
+  text-decoration: none;
+  display: inline-block;
+  border-radius: var(--quaver);
+  padding: var(--semiquaver) var(--quaver);
+
+  &:hover {
+    background-color: var(--grey-100);
+  }
+
+  &:active {
+    background-color: var(--grey-200);
+  }
+
+  &.current {
+    text-decoration: underline;
+  }
+}
+
+.commission-section-container {
+  background-color: white;
+  padding: var(--minim);
+  border: 1px solid var(--grey-200);
+  border-radius: var(--quaver);
+  margin-bottom: var(--minim);
+  scroll-margin-top: 100px;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: var(--minim);
+
+  &[hidden=""] {
+    display: none;
+  }
+}
+
+@media (min-width: 900px) {
+  .commission-section-container#actions,
+  .commission-section-container#details {
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--minim);
+  }
+}
+
+.commission-status-ul {
+  margin: var(--crotchet) 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--crotchet);
+}
+
+.commission-step {
+  display: flex;
+  align-items: center;
+  gap: var(--quaver);
+
+  .step-pip {
+    display: inline-block;
+    position: relative;
+    height: 0.8rem;
+    width: 0.8rem;
+    border-radius: 50%;
+    border: 1px solid var(--fg);
+  }
+
+  &.complete > .step-pip::after {
+    content: "";
+    display: inline-block;
+    width: 0.4rem;
+    height: 0.2rem;
+    border-bottom: 2px solid var(--fg);
+    border-left: 2px solid var(--fg);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateY(-0.07rem) rotate(-60deg);
+  }
+}
+
+.commission-overview-ul {
+  padding-left: 1.25rem;
+  margin-bottom: var(--crotchet);
+}
+
+.commission-user-details-container {
+  margin: var(--crotchet) 0;
+}
+
+.commission-detail {
+  margin: var(--crotchet) 0;
+  & > p {
+    margin: 0;
+  }
+}
+
+.commission-detail-question {
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* commission lists */
+.commission-list-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.commission-list-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--minim);
+  border-top: var(--fg) solid 2px;
+  padding: var(--crotchet) 0;
+
+  &:last-child {
+    border-bottom: var(--fg) solid 2px;
+  }
+}
+
+.commission-list-item-options {
+  margin-left: auto;
+  display: flex;
+  gap: var(--crotchet);
+}
+
+/* correspondence stuff */
+.commission-correspondence-container {
+  height: 400px;
+  margin-left: -16px;
+  margin-right: -16px;
+  display: flex;
+  flex-direction: column;
+  scroll-margin-top: 100px;
+
+  &[hidden=""] {
+    display: none;
+  }
+
+  &.full-page {
+    flex-grow: 1;
+  }
+}
+
+.commission-correspondence-top-matter {
+  padding: 0 16px;
+
+  & > h2 {
+    margin: 0;
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  .commission-correspondence-container {
+    margin: 0;
+  }
+
+  .commission-correspondence-top-matter {
+    padding: 0;
+  }
+}

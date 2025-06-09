@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap");
+
+@font-face { font-family: "Bodoni";
+  font-style: normal;
+  font-weight: 400 900;
+  font-variation-settings: "opsz" 18;
+  src: url("/BodoniModa-VariableFont_opsz,wght.ttf")
+    format("truetype-variations");
+  display: swap;
+}
+
+@font-face {
+  font-family: "Bodoni";
+  font-style: italic;
+  font-weight: 400 900;
+  font-variation-settings: "opsz" 18;
+  src: url("/BodoniModa-Italic-VariableFont_opsz,wght.ttf")
+    format("truetype-variations");
+  display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 100 900;
+  src: url("/Montserrat-VariableFont_wght.ttf") format("truetype-variations");
+  display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: italic;
+  font-weight: 100 900;
+  src: url("/Montserrat-Italic-VariableFont_wght.ttf")
+    format("truetype-variations");
+  display: swap;
+}
+
+/* let's add some variables */
+html {
+  --font-serif: "Bodoni", serif;
+  --font-sans: "Montserrat", sans-serif;
+  --font-script: "Pinyon Script";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: var(--fg);
+  max-width: var(--text-maxwidth);
+  margin-bottom: var(--crotchet);
+
+  &.fw {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  &.nm {
+    margin: 0;
+  }
+
+  &.mt {
+    margin-top: var(--crotcher);
+  }
+}
+
+p {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+p.caption {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.35;
+  margin: var(--crotchet) 0;
+}
+
+em {
+  font-weight: 600;
+  font-style: normal;
+}
+
+button,
+input[type="submit"],
+.button {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* anchor tags */
+a {
+  font-family: var(--font-sans);
+  color: var(--fg-lighter);
+  text-decoration: underline;
+  text-decoration-color: var(--grey-300);
+  cursor: pointer;
+
+  &:hover {
+    text-decoration-color: var(--fg-lighter);
+  }
+
+  &:active {
+    color: var(--fg-lighter);
+  }
+}
+
+li,
+label,
+input,
+textarea {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--fg);
+  line-height: 1.35;
+}
+
+ol.typographic {
+  list-style-type: decimal;
+  padding-left: 2rem;
+}
+
+ul.typographic {
+  list-style-type: disc;
+  padding-left: 2rem;
+}
+
+/* Responsive title sizing */
+h1 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1.1;
+
+  &.oversized {
+    font-size: clamp(2rem, -0.2857rem + 5.7143vw, 4rem);
+    text-transform: uppercase;
+    margin: var(--semibreve) 0;
+  }
+}
+
+h2 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+h4 {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+  h3 {
+    font-size: 1.375rem;
+  }
+  h4 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  h4 {
+    font-size: 1.25rem;
+  }
+}

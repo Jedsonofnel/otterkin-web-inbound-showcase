@@ -1,0 +1,90 @@
+<header>
+  <div class="header-contents-container dashboard">
+    <div class="header-logo-container">
+      <%= link_to root_path, class: "logo-link" do %>
+        <%= image_tag "logo-shw.svg", class: "logo" %>
+      <% end %>
+    </div>
+
+    <nav class="header-middle-breadcrumb-container">
+      <ul class="header-middle-breadcrumb-ul">
+        <%= render_icon "settings_sliders", classes: "header-breadcrumb-icon" %>
+        <li><%= link_to "My Dashboard", dashboard_path, class: "header-breadcrumb-link" %></li>
+        <li class="header-breadcrumb-divider">/</li>
+        <li>
+          <% if action_name == "settings" %>
+            <%= link_to "Settings", dashboard_settings_path, class: "header-breadcrumb-link" %>
+          <% elsif action_name == "commissions" %>
+            <%= link_to "Commissions",
+            dashboard_commissions_path,
+            class: "header-breadcrumb-link" %>
+          <% elsif action_name == "profile" %>
+            <%= link_to "Artist profile",
+            artist_dashboard_profile_path,
+            class: "header-breadcrumb-link" %>
+          <% elsif action_name == "gallery" %>
+            <%= link_to "Artist gallery",
+            artist_dashboard_gallery_path,
+            class: "header-breadcrumb-link" %>
+          <% elsif action_name == "patrons" %>
+            <%= link_to "Patron management",
+            admin_dashboard_patrons_path,
+            class: "header-breadcrumb-link" %>
+          <% elsif action_name == "artists" %>
+            <%= link_to "Artist management",
+            admin_dashboard_artists_path,
+            class: "header-breadcrumb-link" %>
+          <% elsif action_name == "tags" %>
+            <%= link_to "Tag management",
+            admin_dashboard_tags_path,
+            class: "header-breadcrumb-link" %>
+          <% elsif action_name == "subscribers" %>
+            <%= link_to "Subscriber management",
+            admin_dashboard_subscribers_path,
+            class: "header-breadcrumb-link" %>
+          <% elsif action_name == "articles" %>
+            <%= link_to "Article management",
+            admin_dashboard_articles_path,
+            class: "header-breadcrumb-link" %>
+          <% elsif action_name == "newsletters" %>
+            <%= link_to "Newsletter management",
+            admin_dashboard_newsletters_path,
+            class: "header-breadcrumb-link" %>
+          <% elsif action_name == "spotlights" %>
+            <%= link_to "Spotlight management",
+            admin_dashboard_spotlights_path,
+            class: "header-breadcrumb-link" %>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
+
+    <nav class="header-right-nav">
+      <ul class="header-right-nav-ul">
+        <% if artist? %>
+          <li>
+            <%= link_to "My Atelier", artist_atelier_path, class: "button dark small" %>
+          </li>
+        <% end %>
+        <li>
+          <%= link_to root_path, class: "home-button" do %>
+            <%= render_icon "home" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to dashboard_settings_path, class:"account-button" do %>
+            <%= render_icon "profile" %>
+          <% end %>
+        </li>
+      </ul>
+
+      <div class="hamburger-wrapper">
+        <button
+          data-hamburger-target="button"
+          data-action="hamburger#toggle"
+          class="hamburger"
+        ><span class="hamburger-patty"></span></button>
+      </div>
+    </nav>
+  </div>
+</header>

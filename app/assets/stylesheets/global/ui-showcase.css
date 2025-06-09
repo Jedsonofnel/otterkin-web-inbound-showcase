@@ -1,0 +1,26 @@
+.ui-buttons-container {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  row-gap: var(--crotchet);
+  column-gap: var(--minim);
+  padding: var(--minim);
+  border-radius: var(--quaver);
+
+  & > p {
+    margin: 0;
+  }
+
+  &.dark {
+    background-color: var(--mb);
+
+    & > p {
+      color: var(--shw);
+    }
+  }
+}
+
+.ui-button {
+  display: flex;
+  gap: var(--crotchet);
+}

@@ -1,0 +1,57 @@
+<header>
+  <div class="header-contents-container dashboard">
+    <div class="header-logo-container">
+      <%= link_to root_path, class: "logo-link" do %>
+        <%= image_tag "logo-shw.svg", class: "logo" %>
+      <% end %>
+    </div>
+
+    <nav class="header-middle-breadcrumb-container">
+      <ul class="header-middle-breadcrumb-ul">
+        <%= render_icon "paintbrush_simple", classes: "header-breadcrumb-icon" %>
+        <li><%= link_to "My Atelier", artist_atelier_path, class: "header-breadcrumb-link" %></li>
+        <li class="header-breadcrumb-divider">/</li>
+        <li>
+          <% if action_name == "home" %>
+            <%= link_to "Overview", artist_atelier_path, class: "header-breadcrumb-link" %>
+          <% elsif action_name == "incoming_commissions" %>
+            <%= link_to "Incoming Commissions",
+            artist_atelier_incoming_commissions_path,
+            class: "header-breadcrumb-link" %>
+          <% elsif action_name == "current_commissions" || "commission" %>
+            <%= link_to "Active Commissions",
+            artist_atelier_active_commissions_path,
+            class: "header-breadcrumb-link" %>
+          <% elsif action_name == "finished_commissions" %>
+            <%= link_to "Finished Commissions",
+            artist_atelier_finished_commissions_path,
+            class: "header-breadcrumb-link" %>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
+
+    <nav class="header-right-nav">
+      <ul class="header-right-nav-ul">
+        <li>
+          <%= link_to root_path, class: "home-button" do %>
+            <%= render_icon "home" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to dashboard_settings_path, class:"account-button" do %>
+            <%= render_icon "profile" %>
+          <% end %>
+        </li>
+      </ul>
+
+      <div class="hamburger-wrapper">
+        <button
+          data-hamburger-target="button"
+          data-action="hamburger#toggle"
+          class="hamburger"
+        ><span class="hamburger-patty"></span></button>
+      </div>
+    </nav>
+  </div>
+</header>
