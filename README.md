@@ -35,7 +35,7 @@ This means an Artist can easily visualise what their public artist
 profile may look like once the app is launched and can get excited about
 it because it's a lot more visceral to interact with an actual website
 than mockups or screenshots etc.  You can generate one yourself by
-sending an email OR you can see an existing one [Here]()
+sending an email OR you can see an existing one [Here](https://otterkin.co.uk/artist_drafts/4)
 
 ## Code Overview
 
